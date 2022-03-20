@@ -1,7 +1,17 @@
 package com.springannotations;
 
+// Spring bean lifecycle impementation
 public class TrackCoach implements  Coach
 {
+private FortuneService fortuneService;
+    public  TrackCoach()
+    {
+
+    }
+    public TrackCoach(FortuneService fortuneService)
+    {
+        this.fortuneService=fortuneService;
+    }
 
     public String getDailyWorkout()
     {
@@ -11,5 +21,18 @@ public class TrackCoach implements  Coach
     {
         return null;
     }
+
+    // add an init method
+    public  void doMyStartupStuff()
+    {
+        System.out.println("TrackCoah: inside method doMyStartupStuff");
+    }
+
+    // add a destory method
+    public  void doMyCleanupStuff()
+    {
+        System.out.println("TrackCoah: inside method doMyCleanupStuff");
+    }
+
 
 }
